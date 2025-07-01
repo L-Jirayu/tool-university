@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ToolUniversity.Models.db.ToolInfor>
+@{
+    ViewData["Title"] = "Read Data";
+}
+
+<h1>Read Data</h1>
+
+@if (Model.Count() <= 0)
+{
+    <div class="alert alert-danger">No data found</div>
+}
+else
+{
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>Tool ID</th>
+                <th>Tool Name</th>
+                <th>Tool Type</th>
+                <th>Satus</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ToolId</td>
+                    <td>@item.ToolName</td>
+                    <td>@item.ToolType</td>
+                    <td>@item.Status</td>
+                    <td>
+                        <a class="btn btn-info"
+                           asp-controller="ToolInfor"
+                           asp-action="Details"
+                           asp-route-id="@item.ToolId">
+                            Detail
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,28 @@
+﻿@model ToolUniversity.Models.db.OfficerInfor;
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Insert Officer</h1>
+<form method="post" asp-controller="OfficerInfor" asp-action="Create">
+    <div class="form-group mb-3">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Position"></label>
+        <input type="text" asp-for="Position" class="form-control" />
+        <span asp-validation-for="Position" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Department"></label>
+        <input type="text" asp-for="Department" class="form-control" />
+        <span asp-validation-for="Department" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+</form>

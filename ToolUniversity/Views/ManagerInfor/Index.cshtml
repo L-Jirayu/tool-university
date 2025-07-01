@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ToolUniversity.Models.db.ManagerInfor>
+@{
+    ViewData["Title"] = "Read Data";
+}
+
+<h1>Read Data</h1>
+
+@if (Model.Count() <= 0)
+{
+    <div class="alert alert-danger">No data found</div>
+}
+else
+{
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>Manager ID</th>
+                <th>Manager Name</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ManagerId</td>
+                    <td>@item.Name</td>
+                    <td>
+                        <a class="btn btn-info"
+                           asp-controller="ManagerInfor"
+                           asp-action="Details"
+                           asp-route-id="@item.ManagerId">
+                            Detail
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

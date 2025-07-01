@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ToolUniversity.ViewModels.FeeInforViewModel>
+
+@{
+    ViewData["Title"] = "Fee List";
+}
+
+<h1>Fee List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New</a>
+</p>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().FeeId)</th>
+            <th>@Html.DisplayNameFor(model => model.First().UserName)</th>
+            <th>@Html.DisplayNameFor(model => model.First().LendId)</th>
+            <th>@Html.DisplayNameFor(model => model.First().ReturnId)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Fee)</th>
+            <th>Function</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FeeId)</td>
+                <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                <td>@Html.DisplayFor(modelItem => item.LendId)</td>
+                <td>@Html.DisplayFor(modelItem => item.ReturnId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Fee)</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-outline-warning me-3" asp-action="Edit" asp-route-id="@item.FeeId">Edit</a>
+                        <a class="btn btn-outline-info me-3" asp-action="Details" asp-route-id="@item.FeeId">Details</a>
+                        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.FeeId">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

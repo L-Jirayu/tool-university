@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ToolUniversity.ViewModels.ReturnInforViewModel>
+
+@{
+    ViewData["Title"] = "Return List";
+}
+
+<h1>Return List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New</a>
+</p>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().ReturnId)</th>
+            <th>@Html.DisplayNameFor(model => model.First().ToolName)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+            <th>@Html.DisplayNameFor(model => model.First().DateReturn)</th>
+            <th>Function</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ReturnId)</td>
+                <td>@Html.DisplayFor(modelItem => item.ToolName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@item.DateReturn.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-outline-warning me-3" asp-action="Edit" asp-route-id="@item.ReturnId">Edit</a>
+                        <a class="btn btn-outline-info me-3" asp-action="Details" asp-route-id="@item.ReturnId">Details</a>
+                        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.ReturnId">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model ToolUniversity.Models.db.User;
+@{
+    ViewData["Title"] = "Update Data";
+}
+
+<h1>Update Data</h1>
+
+<form method="get" asp-controller="User" asp-action="UpdDB">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="UserId" />
+    
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Faculty" class="control-label"></label>
+        <input asp-for="Faculty" class="form-control" />
+        <span asp-validation-for="Faculty" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Major" class="control-label"></label>
+        <input asp-for="Major" class="form-control" />
+        <span asp-validation-for="Major" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary"
+            onclick="return confirm('Do you want to update user')">
+        Update
+    </button>
+
+    <button type="reset" class="btn btn-primary">Reset</button>
+
+</form>
+
+<div>
+    <a asp-action="Index">Back to list</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

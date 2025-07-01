@@ -1,0 +1,28 @@
+﻿@model ToolUniversity.Models.db.User;
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Insert User</h1>
+<form method="post" asp-controller="User" asp-action="Create">
+    <div class="form-group mb-3">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Faculty"></label>
+        <input type="text" asp-for="Faculty" class="form-control" />
+        <span asp-validation-for="Faculty" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Major"></label>
+        <input type="text" asp-for="Major" class="form-control" />
+        <span asp-validation-for="Major" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+</form>

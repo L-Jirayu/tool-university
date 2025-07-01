@@ -1,0 +1,35 @@
+﻿@model ToolUniversity.Models.db.ManagerInfor;
+@{
+    ViewData["Title"] = "Update Data";
+}
+
+<h1>Update Data</h1>
+
+<form method="get" asp-controller="ManagerInfor" asp-action="UpdDB">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ManagerId" />
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary"
+            onclick="return confirm('Do you want to update manager')">
+        Update
+    </button>
+
+    <button type="reset" class="btn btn-primary">Reset</button>
+
+</form>
+
+<div>
+    <a asp-action="Index">Back to list</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

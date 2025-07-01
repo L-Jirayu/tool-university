@@ -1,0 +1,36 @@
+﻿@model ToolUniversity.ViewModels.LendInforViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input type="hidden" asp-for="LendId" />
+
+    <div class="form-group">
+        <label asp-for="ToolId" class="control-label"></label>
+        <select asp-for="ToolId" class="form-control" asp-items="ViewBag.ToolId"></select>
+        <span asp-validation-for="ToolId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserId" class="control-label"></label>
+        <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateLend" class="control-label"></label>
+        <input asp-for="DateLend" class="form-control" type="date" />
+        <span asp-validation-for="DateLend" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

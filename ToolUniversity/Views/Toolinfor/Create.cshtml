@@ -1,0 +1,28 @@
+﻿@model ToolUniversity.Models.db.ToolInfor;
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Insert Tool</h1>
+<form method="post" asp-controller="ToolInfor" asp-action="Create">
+    <div class="form-group mb-3">
+        <label asp-for="ToolName"></label>
+        <input type="text" asp-for="ToolName" class="form-control" />
+        <span asp-validation-for="ToolName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="ToolType"></label>
+        <input type="text" asp-for="ToolType" class="form-control" />
+        <span asp-validation-for="ToolType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Status"></label>
+        <input type="text" asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+</form>
